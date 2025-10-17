@@ -1,9 +1,10 @@
 function showRoutine() {
-  /* showRoutine function grabs list, image, audio, and time elements*/
+  /* showRoutine function grabs list, image, description, audio, and time elements*/
   const routineList = document.getElementById("ul-routine");
   const routineImg = document.getElementById("img-routine");
   const routineAudio = document.getElementById("aud-routine");
   const currentTimeP = document.getElementById("current-time");
+  const routineDescription = document.getElementById("routine-description");
 
   /* Time variables to record the current time */
   const now = new Date();
@@ -35,18 +36,26 @@ function showRoutine() {
   if (hours < 11) {
     /* If hours value is less than 11, it's currently morning */
     // Morning
+    description =
+      "Good Morning, Sunshine! Start your day energized and focused!";
     routine = [
       "Wake up and stretch",
       "Feed cats",
       "Eat breakfast",
-      "Brush teeth",
+      "Brush my teeth",
       "Plan my day",
     ];
+
+    // Set the text content dynamically
+    routineDescription.textContent = description;
+
     imgSrc = "images/morning.jpg"; /* Morning image relative file path */
     audioSrc = "songs/morning.mp3"; /* Morning mp3 relative file path */
   } else if (hours < 19) {
     /* If hours value is less than 19 (but not morning), it's currently afternoon */
     // Afternoon
+    description =
+      "Happy Afternoon! Keep your momentum going with some tasks and a break!";
     routine = [
       "Work on tasks",
       "Have lunch",
@@ -54,11 +63,16 @@ function showRoutine() {
       "Check emails",
       "Drink water",
     ];
+
+    // Set the text content dynamically
+    routineDescription.textContent = description;
     imgSrc = "images/afternoon.jpg";
     audioSrc = "songs/afternoon.mp3";
   } else {
     /* Otherwise, it's currently evening */
     // Evening
+    description =
+      "Have a Great Evening! Time to prepare for tomorrow and relax!";
     routine = [
       "Have dinner",
       "Take a shower",
@@ -66,6 +80,8 @@ function showRoutine() {
       "Relax and read",
       "Go to bed",
     ];
+    // Set the text content dynamically
+    routineDescription.textContent = description;
     imgSrc = "images/evening.jpg";
     audioSrc = "songs/evening.mp3";
   }
